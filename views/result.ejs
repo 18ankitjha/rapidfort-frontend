@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Detective Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212; /* Dark background color */
+      color: #ffffff; /* Text color */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      background-color: #1f1f1f; /* Darker background for the table */
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ff6347; /* Orange-red border color */
+      padding: 8px;
+      text-align: left;
+      color: #ffffff; /* Text color for table cells */
+    }
+    th {
+      background-color: #ff4500; /* Darker orange-red for header */
+    }
+  </style>
+</head>
+<body>
+  <h1>File Upload Result</h1>
+  <table>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Filename</td>
+      <td id="filename"></td>
+    </tr>
+    <tr>
+      <td>Original Name</td>
+      <td id="originalname"></td>
+    </tr>
+    <tr>
+      <td>Size</td>
+      <td id="size"></td>
+    </tr>
+    <tr>
+      <td>MIME Type</td>
+      <td id="mimetype"></td>
+    </tr>
+  </table>
+
+  <script>
+    const jsonData = JSON.parse('<%- JSON.stringify(jsonData) %>'); // Parse JSON data from a string
+    document.getElementById('filename').textContent = jsonData.filename;
+    document.getElementById('originalname').textContent = jsonData.originalname;
+    document.getElementById('size').textContent = jsonData.size;
+    document.getElementById('mimetype').textContent = jsonData.mimetype;
+  </script>
+</body>
+</html>
